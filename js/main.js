@@ -42,9 +42,23 @@ function addToCart(e){
 
     // using closest - cart icons can touch.
     // when you click and if there is no "item" class, look for closest "items" near in that code, and apply function on that.
-    // without (item) after "if", it works
+    // without (item) after "if", it works👻
     const item = e.target.closest(".item")
     if(item){
         item.insertAdjacentHTML("beforeend",`<span>🛒</span>`)
     }
 } 
+
+//form handling
+const groceryForm = document.getElementById("groceryForm")
+groceryForm.addEventListener("submit",function(e){
+    e.preventDefault()
+    const elements = groceryForm.elements
+    for (const element of elements) {
+      console.log(element.name + "=" + element.value)
+        if (element.name =="groceryItem" && element.value !== ""){
+            groceriesList.insertAdjacentHTML("beforeend", `<li class="item">${element.value}</li>`)
+            groceryForm.reset()
+        }
+    }
+})
