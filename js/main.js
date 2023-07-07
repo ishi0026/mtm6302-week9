@@ -31,9 +31,20 @@ const groceriesList = document.getElementById("grocerieslist")
 
 grocerieslist.addEventListener("click", addToCart)
 
+// Using e.target.remove() can delete <span>🛒</span> by clicking
 function addToCart(e){
-    const item = e.target
-    if(item.classList.contains("item")){
+    // const item = e.target
+    // if(item.classList.contains("item")){
+    //     item.insertAdjacentHTML("beforeend",`<span>🛒</span>`)
+    // } else {
+    // e.target.remove()
+    // }
+
+    // using closest - cart icons can touch.
+    // when you click and if there is no "item" class, look for closest "items" near in that code, and apply function on that.
+    // without (item) after "if", it works
+    const item = e.target.closest(".item")
+    if(item){
         item.insertAdjacentHTML("beforeend",`<span>🛒</span>`)
     }
-}
+} 
