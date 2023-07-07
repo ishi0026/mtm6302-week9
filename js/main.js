@@ -9,7 +9,7 @@ title.addEventListener("click", function() {
 
 const like = document.getElementById("like")
 
-like.addEventListener('click', function(e) {
+like.addEventListener("click", function(e) {
     e.target.classList.toggle("liked")
 })
 
@@ -24,4 +24,16 @@ for(const task of tasks) {
 //event will not work if they have several class inside-because it is only target on one class
 function completetask(e) {
     e.target.classList.toggle("done")
+}
+
+//Event delegation
+const groceriesList = document.getElementById("grocerieslist")
+
+grocerieslist.addEventListener("click", addToCart)
+
+function addToCart(e){
+    const item = e.target
+    if(item.classList.contains("item")){
+        item.insertAdjacentHTML("beforeend",`<span>🛒</span>`)
+    }
 }
