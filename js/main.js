@@ -21,6 +21,7 @@ for(const task of tasks) {
     task.addEventListener("click", completetask)
 }
 
+//event will not work if they have several class inside-because it is only target on one class
 function completetask(e) {
     e.target.classList.toggle("done")
 }
