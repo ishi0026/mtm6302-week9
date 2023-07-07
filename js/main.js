@@ -12,3 +12,15 @@ const like = document.getElementById("like")
 like.addEventListener('click', function(e) {
     e.target.classList.toggle("liked")
 })
+
+//multiple element eventlistener
+//need children to catch every element under the "todolist" id
+const tasks = document.getElementById("todolist").children
+
+for(const task of tasks) {
+    task.addEventListener("click", completetask)
+}
+
+function completetask(e) {
+    e.target.classList.toggle("done")
+}
